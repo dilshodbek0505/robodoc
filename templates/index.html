@@ -1,0 +1,74 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container p-2">
+        <h2 class="mb-4 m-3">Forma</h2>
+        <form action="#" method="post">{% csrf_token %}
+            <div>
+                <label for="exampleSelect1" class="form-label mt-4">Font turi</label>
+                <select class="form-select" id="exampleSelect1" name="font">
+                  {% for font in font_names %}
+                    <option value="{{font}}">{{font}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="exampleSelect2" class="form-label mt-4">Template nomi</label>
+                <select class="form-select" id="exampleSelect2" name="template">
+                  {% for file in file_names %}
+                    <option value="{{file}}">{{file}}</option>
+                  {% endfor %}
+                </select>
+            </div>
+            <div>
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput">Full name</label>
+                  <input class="form-control" id="readOnlyInput" type="text" name="full_name">
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput2">Given date</label>
+                  <input class="form-control" id="readOnlyInput2" type="text" name="given_date">
+                  <small id="readOnlyInput2" class="form-text text-muted">Example: 24,01,aprel</small>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput3">Reference number</label>
+                  <input class="form-control" id="readOnlyInput3" type="text" name="reference_number">
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput4">Start date</label>
+                  <input class="form-control" id="readOnlyInput4" type="text" name="start_date">
+                  <small id="readOnlyInput4" class="form-text text-muted">Example: 24,01,aprel</small>
+
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                  <label class="form-label mt-4" for="readOnlyInput5">End date</label>
+                  <input class="form-control" id="readOnlyInput5" type="text" name="end_date">
+                  <small id="readOnlyInput5" class="form-text text-muted">Example: 24,01,aprel</small>
+                </fieldset>
+            </div>
+            <br>
+            <button class="btn btn-success" type="submit">Submit</button>
+            <br>
+            <br>
+            <a download type="Submit" class="btn btn-success" href="{% static 'tayyor.png' %}">Image download</a>
+        </form>
+    </div>
+</body>
+</html>
