@@ -1,11 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Template
-from .forms import TemplateForm
-
-from django.db import models
 from PIL import Image, ImageDraw, ImageFont
-from datetime import datetime
 import os
 
 
@@ -28,14 +22,6 @@ def get_font_choices():
     return file_choices
 
 def generate_image(templates, font, data):
-        # data = {
-        #     "full_name": "Dilshodbek Donaboyev",
-        #     "given_date": ['24','15', 'aprel'],
-        #     "reference_number": 50,
-        #     "start_date": ['24','02', 'aprel'],
-        #     "end_date": ['24', '15', 'aprel']
-        # }
-        
         image = Image.open(f'img/{templates}')
         d = ImageDraw.Draw(image)
         font = ImageFont.truetype(f'fonts/{font}', 44)
